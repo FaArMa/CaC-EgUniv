@@ -1,16 +1,16 @@
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>EgUniv - CRUD</title>
+        <!-- CSS -->
+        <link href="src/css/bootstrap.min.css" rel="stylesheet">
+        <link href="src/css/fontawesome.all.min.css" rel="stylesheet">
     </head>
     <body>
-        <ul>
-            <c:forEach var="s" items="${stu}">
-                <li>${s.id} vs ${s.name} vs ${s.surname} vs ${s.sex} vs ${s.nationality} vs ${s.dni} vs ${s.birth}</li>
-            </c:forEach>
-        </ul>
+        <jsp:include page="/WEB-INF/common/readTable.jsp"/>
+        <!-- JS -->
+        <script src="src/js/bootstrap.bundle.min.js"></script>
     </body>
 </html>
