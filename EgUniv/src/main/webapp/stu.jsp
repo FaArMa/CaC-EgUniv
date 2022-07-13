@@ -7,8 +7,10 @@
         <!-- CSS -->
         <link href="src/css/bootstrap.min.css" rel="stylesheet">
         <link href="src/css/fontawesome.all.min.css" rel="stylesheet">
+        <link href="src/css/main.css" rel="stylesheet">
     </head>
-    <body>
+    <body class="bg-dark">
+        <jsp:include page="/WEB-INF/common/header.jsp"/>
         <jsp:include page="/WEB-INF/common/readTable.jsp"/>
         <!-- JS -->
         <script src="src/js/bootstrap.bundle.min.js"></script>
