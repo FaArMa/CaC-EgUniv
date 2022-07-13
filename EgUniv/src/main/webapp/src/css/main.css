@@ -1,0 +1,28 @@
+/*
+ * Table
+ */
+.table-no-margin-bottom {
+    margin-bottom: 0px;
+}
+
+.table-fit {
+    white-space: nowrap;
+    width: 1%;
+}
+
+
+
+
+/*
+ * Scrollbar
+ */
+::-webkit-scrollbar {
+    -webkit-appearance: none;
+    background-color: var(--bs-dark);
+    width: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--bs-gray-800);
+    border-radius: 0px;
+}
