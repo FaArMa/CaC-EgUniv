@@ -13,6 +13,7 @@ import java.util.List;
 public class UnivDAO {
     private static final String SQL_CREATE = "INSERT INTO stu(name, surname, sex, nationality, dni, birth) VALUES (?, ?, ?, ?, ?, ?)",
     SQL_READ = "SELECT * FROM stu",
+    SQL_READ_ID = "SELECT * FROM stu WHERE id = ?",
     SQL_UPDATE = "UPDATE stu SET name = ?, surname = ?, sex = ?, nationality = ?, dni = ?, birth = ? WHERE (id = ?)",
     SQL_DELETE = "DELETE FROM stu WHERE id = ?";
     
@@ -50,6 +51,39 @@ public class UnivDAO {
         return SS;
     }
 
+    public Stu readId(int idStu) {
+        Connection cxn = null;
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        Stu S = null;
+        try {
+            cxn = getCxn();
+            stmt = cxn.prepareStatement(SQL_READ_ID);
+            stmt.setInt(1, idStu);
+            rs = stmt.executeQuery();
+            while (rs.next()) {
+                int id = rs.getInt(1);
+                String name = rs.getString(2), surname = rs.getString(3);
+                char sex = rs.getString(4).charAt(0);
+                String nationality = rs.getString(5);
+                int dni = rs.getInt(6);
+                String birth = rs.getString(7);
+                S = new Stu(id, name, surname, sex, nationality, dni, birth);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace(System.out);
+        } finally {
+            try {
+                close(rs);
+                close(stmt);
+                close(cxn);
+            } catch (SQLException ex) {
+                ex.printStackTrace(System.out);
+            }
+        }
+        return S;
+    }
+    
     public int create(Stu S) {
         Connection cxn = null;
         PreparedStatement stmt = null;
