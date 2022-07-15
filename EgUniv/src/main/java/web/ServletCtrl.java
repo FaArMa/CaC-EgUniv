@@ -72,7 +72,10 @@ public class ServletCtrl extends HttpServlet {
     }
     
     protected void delStu(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-        // TODO
+        int idStu = Integer.parseInt(req.getParameter("idStu"));
+        int C = new UnivDAO().delete(idStu);
+        //System.out.println("- Deleted: " + C);
+        ActDef(req, res);
     }
 
     private void ActDef(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
