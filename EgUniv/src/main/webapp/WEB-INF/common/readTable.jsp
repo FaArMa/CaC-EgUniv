@@ -8,7 +8,6 @@
                     <div class="card-header">
                         <h4 class="d-flex justify-content-between align-items-center">
                             Students list
-                            <!-- TODO Editar cuando este terminado el addStu.jsp -->
                             <a href="#" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#addStu"><i class="fa-solid fa-circle-plus"></i> Add student</a>
                         </h4>
                     </div>
@@ -52,3 +51,5 @@
         </div>
     </div>
 </section>
+
+<jsp:include page="/WEB-INF/common/addStu.jsp"/>
