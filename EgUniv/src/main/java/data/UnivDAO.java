@@ -57,13 +57,12 @@ public class UnivDAO {
         try {
             cxn = getCxn();
             stmt = cxn.prepareStatement(SQL_CREATE);
-            stmt.setInt(1, S.getId());
-            stmt.setString(2, S.getName());
-            stmt.setString(3, S.getSurname());
-            stmt.setString(4, String.valueOf(S.getSex()));
-            stmt.setString(5, S.getNationality());
-            stmt.setInt(6, S.getDni());
-            stmt.setString(7, S.getBirth());
+            stmt.setString(1, S.getName());
+            stmt.setString(2, S.getSurname());
+            stmt.setString(3, String.valueOf(S.getSex()));
+            stmt.setString(4, S.getNationality());
+            stmt.setInt(5, S.getDni());
+            stmt.setString(6, S.getBirth());
             rec = stmt.executeUpdate();
         } catch (SQLException ex) {
             ex.printStackTrace(System.out);
