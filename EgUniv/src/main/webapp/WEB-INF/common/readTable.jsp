@@ -36,8 +36,8 @@
                                         <td>${s.dni}</td>
                                         <td>${s.birth}</td>
                                         <td class="table-fit">
-                                            <!-- TODO Editar cuando este terminado el editStu.jsp -->
-                                            <a href="#" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editStu"><i class="fas fa-edit"></i></a>
+                                            <!-- FIXME Muy lindo todo pero lo mio es un Modal, no un HTML diferente! -->
+                                            <a href="${pageContext.request.contextPath}/ServletCtrl?action=edit&idStu=${s.id}" class="btn btn-warning"><i class="fas fa-edit"></i></a>
                                             <!-- XXX Realmente es peligroso NO pedir confirmación antes de eliminar -->
                                             <a href="${pageContext.request.contextPath}/ServletCtrl?action=delete&idStu=${s.id}" class="btn btn-danger"><i class="far fa-trash-alt"></i></a>
                                         </td>

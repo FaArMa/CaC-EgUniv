@@ -64,11 +64,24 @@ public class ServletCtrl extends HttpServlet {
     }
     
     protected void editStu(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-        // TODO
+        // FIXME Muy lindo todo pero lo mio es un Modal, no un HTML diferente!
+        int idStu = Integer.parseInt(req.getParameter("idStu"));
+        Stu S = new UnivDAO().readId(idStu);
+        req.setAttribute("s", S);
+        req.getRequestDispatcher("/WEB-INF/common/editStu.jsp").forward(req, res);
     }
     
-    protected void modStu(HttpServletRequest req, HttpServletResponse res) {
-        // TODO
+    protected void modStu(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+        int id = Integer.parseInt(req.getParameter("idStu"));
+        String name = req.getParameter("name"), surname = req.getParameter("surname");
+        char sex = req.getParameter("sex").charAt(0);
+        String nationality = req.getParameter("nationality");
+        int dni = Integer.parseInt(req.getParameter("dni"));
+        String birth = req.getParameter("birth");
+        Stu S = new Stu(id, name, surname, sex, nationality, dni, birth);
+        int C = new UnivDAO().update(S);
+        //System.out.println("- Updated: " + C);
+        ActDef(req, res);
     }
     
     protected void delStu(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
