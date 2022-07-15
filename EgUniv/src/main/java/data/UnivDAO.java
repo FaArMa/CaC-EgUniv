@@ -105,14 +105,14 @@ public class UnivDAO {
         return rec;
     }
 
-     public int delete(Stu S){
+     public int delete(int idStu){
         Connection cxn = null;
         PreparedStatement stmt = null;
         int rec = 0;
         try {
             cxn = getCxn();
             stmt = cxn.prepareStatement(SQL_DELETE);
-            stmt.setInt(1, S.getId());
+            stmt.setInt(1, idStu);
             rec = stmt.executeUpdate();
         } catch (SQLException ex) {
             ex.printStackTrace(System.out);
